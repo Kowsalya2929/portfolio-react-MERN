@@ -41,11 +41,13 @@ import p38 from '../images/dictionary.png'
 import p39 from '../images/jwt.png'
 import p40 from '../images/notes.png'
 import p41 from '../images/weather2.png'
+import p42 from '../images/github.png'
 import { GitHub, Kitesurfing } from '@mui/icons-material'
 
 const Projects = () => {
 
   const projectItems = [
+    {name: "GitHub App", img: p42, GitUrl: 'https://github.com/Kowsalya2929/GitHub-Profile-Search-App', siteUrl: 'https://jade-marzipan-ed11ec.netlify.app/'},
     {name: "Weather-app-mern", img: p41, GitUrl: 'https://github.com/Kowsalya2929/weather-app-mern', siteUrl: ''},
     {name: "Notes-app-mern", img: p40, GitUrl: 'https://github.com/Kowsalya2929/Notes-app-mern', siteUrl: ''},
     {name: "Auth-JWT-mongoDB", img: p39, GitUrl: 'https://github.com/Kowsalya2929/Auth-JWT-mongoDB', siteUrl: ''},
