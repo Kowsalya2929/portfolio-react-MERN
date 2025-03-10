@@ -79,7 +79,7 @@ const Education = () => {
               <Typography variant="body2" sx={{ fontWeight: "bold", color: "gray" }}>{cert.date}</Typography>
               <Box component="ul" sx={{ pl: 2, mt: 1 }}>
                 {cert.projects.map((project, idx) => (
-                  <Typography key={idx} component="li" variant="body2" sx={{ color: "black" }}>{project}</Typography>
+                  <Typography key={idx} component="li" variant="body2">{project}</Typography>
                 ))}
               </Box>
             </CardContent>
