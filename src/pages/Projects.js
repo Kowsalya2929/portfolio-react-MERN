@@ -43,11 +43,13 @@ import p40 from '../images/notes.png'
 import p41 from '../images/weather2.png'
 import p42 from '../images/github.png'
 import p43 from '../images/ip.png'
+import p44 from '../images/avatar.png'
 import { GitHub, Kitesurfing } from '@mui/icons-material'
 
 const Projects = () => {
 
   const projectItems = [
+    {name: "Avatar App", img: p44, GitUrl: 'https://github.com/Kowsalya2929/avatar-app', siteUrl: 'https://incomparable-dasik-41741a.netlify.app/'},
     {name: "IP App", img: p43, GitUrl: 'https://github.com/Kowsalya2929/Ip-tracker-app', siteUrl: 'https://luminous-chebakia-df8e67.netlify.app/'},
     {name: "GitHub App", img: p42, GitUrl: 'https://github.com/Kowsalya2929/GitHub-Profile-Search-App', siteUrl: 'https://jade-marzipan-ed11ec.netlify.app/'},
     {name: "Weather-app-mern", img: p41, GitUrl: 'https://github.com/Kowsalya2929/weather-app-mern', siteUrl: ''},
