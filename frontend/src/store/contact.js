@@ -1,14 +1,12 @@
 import { create } from 'zustand'
 
-const API_BASE_URL = 'http://localhost:8000';
-
 const useContactStore = create((set)=>({
     contacts: [],
     setContacts: ((contacts)=>set({contacts})),
     postContact: async(newContact)=>{
         try{
             const {firstName,lastName,email,sub,msg} = newContact;
-            const res = await fetch(`${API_BASE_URL}/api/contact`,{
+            const res = await fetch('/api/contact',{
                 method: 'POST',
                 headers:{
                     'Content-Type':'application/json'
