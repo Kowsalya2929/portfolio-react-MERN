@@ -13,7 +13,11 @@ const app = express()
 connectDB()
 
 app.use(express.json())
-app.use(cors())
+app.use(cors({
+    origin: 'http://localhost:3000',
+    methods: 'GET,POST',            
+    allowedHeaders: 'Content-Type'  
+}));
 app.use('/api/contact',contactRoute)
 
 if(process.env.NODE_ENV === "production"){
