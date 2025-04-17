@@ -1,8 +1,37 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Box, Button, Card, TextField, Typography } from '@mui/material'
+import { toast, ToastContainer } from 'react-toastify'
+import useContactStore from '../store/contact.js'
+
 const Contact = () => {
+  const [newContact,setNewContact] = useState({firstName:"",lastName:"",email:"",sub:"",msg:""})
+  const {postContact} = useContactStore()
+  const handleAddContact = async(newContact)=>{
+    const {success,message} = await postContact(newContact)
+    if(!success){
+      toast.error(message,{
+        position: 'top-center',
+        draggable: true,
+        closeOnClick: true,
+        autoClose: 3000,
+        pauseOnHover: true,
+        hideProgressBar: false
+      })
+    }else{
+      toast.success(message,{
+        position:'top-center',
+        draggable: true,
+        closeOnClick: true,
+        autoClose: 3000,
+        pauseOnHover: true,
+        hideProgressBar: false
+      })
+      setNewContact({firstName:"",lastName:"",email:"",sub:"",msg:""})
+    }
+  }
   return (
     <Box sx={{display:'flex',justifyContent:'center',alignItems:'center',height:'89vh',width:'100%'}}>
+      <ToastContainer />
       <Card elevation={5} sx={{display:'flex',flexDirection:'column',p:3,width:{xs:'auto',md:500}}}>
         <Typography
             variant="h4"
@@ -31,21 +60,29 @@ const Contact = () => {
             label='First Name'
             fullWidth
             sx={{mt:2}}
+            value={newContact?.firstName}
+            onChange={(e)=>setNewContact({...newContact,firstName: e.target.value})}
           />
           <TextField 
             label='Last Name'
             fullWidth
             sx={{mt:2}}
+            value={newContact?.lastName}
+            onChange={(e)=>setNewContact({...newContact,lastName: e.target.value})}
           />
           <TextField 
             label='Email address'
             fullWidth
             sx={{mt:2}}
+            value={newContact?.email}
+            onChange={(e)=>setNewContact({...newContact,email: e.target.value})}
           />
           <TextField 
             label='Subject'
             fullWidth
             sx={{mt:2}}
+            value={newContact?.sub}
+            onChange={(e)=>setNewContact({...newContact,sub: e.target.value})}
           />
           <TextField 
             label='Your message'
@@ -53,8 +90,11 @@ const Contact = () => {
             multiline
             fullWidth
             rows={3}
+            value={newContact?.msg}
+            onChange={(e)=>setNewContact({...newContact,msg: e.target.value})}
           />
           <Button
+          onClick={()=>handleAddContact(newContact)}
             sx={{
               fontSize: { xs: '1rem', sm: '1.1rem' },
                 padding: { xs: '8px 16px', sm: '10px 20px' },
