@@ -4,6 +4,7 @@ import path from 'path'
 import connectDB from './config/connectDB.js'
 import contactRoute from './routes/contactRoute.js'
 import cors from 'cors'
+import projRoute from './routes/projRoute.js'
 
 dotenv.config()
 
@@ -14,11 +15,12 @@ connectDB()
 
 app.use(express.json())
 app.use(cors({
-    origin: 'http://localhost:3000',
-    methods: 'GET,POST',            
-    allowedHeaders: 'Content-Type'  
+    origin: 'https://portfolio-react-bspc.onrender.com',
+    credentials: true
 }));
+
 app.use('/api/contact',contactRoute)
+app.use('/api/project',projRoute)
 
 if(process.env.NODE_ENV === "production"){
     app.use(express.static(path.join(__dirname,'/frontend/build')))
