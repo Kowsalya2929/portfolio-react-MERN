@@ -42,7 +42,7 @@ import p39 from '../images/jwt.png'
 import p40 from '../images/notes.png'
 import p41 from '../images/weather2.png'
 import p42 from '../images/github.png'
-import p43 from '../images/ip.png'
+// import p43 from '../images/ip.png'
 import p44 from '../images/avatar.png'
 import { GitHub, Kitesurfing } from '@mui/icons-material'
 
